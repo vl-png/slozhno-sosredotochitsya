@@ -1,5 +1,329 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+.header {
+  position: relative;
+  display: grid;
+  grid: 1fr 1fr 1fr / 1fr;
+  align-items: start;
+  margin-block-end: 42px;
+  padding: clamp(10px, 2.6vw, 20px) clamp(10px, 2.6vw, 20px);
+  block-size: 100vh;
+}
+
+.decorated-zone::before {
+  content: " ";
+  position: absolute;
+  inset: auto auto clamp(10px, 2.6vw, 20px) clamp(10px, 2.6vw, 20px);
+  z-index: 1;
+  border-inline-start: 1px solid var(--corners-color);
+  border-block-end: 1px solid var(--corners-color);
+  block-size: 25px;
+  inline-size: 25px;
+}
+
+.decorated-zone::after {
+  content: " ";
+  position: absolute;
+  inset: clamp(10px, 2.6vw, 20px) clamp(10px, 2.6vw, 20px) auto auto;
+  z-index: 1;
+  border-inline-end: 1px solid var(--corners-color);
+  border-block-start: 1px solid var(--corners-color);
+  block-size: 25px;
+  inline-size: 25px;
+}
+
+.rec-decor {
+  position: absolute;
+  inset: clamp(10px, 2.6vw, 20px) clamp(10px, 2.6vw , 20px) auto auto;
+  visibility: var(--rec-decor-visibility);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  block-size: 26px;
+  inline-size: 60px;
+}
+
+.rec-decor::before {
+  content: "rec";
+  color: var(--corners-color);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 139%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.rec-decor::after {
+  content: " ";
+  display: inline-block;
+  border-radius: 50%;
+  box-shadow: 0 0 4px 2px var(--corners-color);
+  background-color: var(--corners-color);
+  block-size: 10px;
+  inline-size: 10px;
+}
+
+.rec-decor {
+  position: absolute;
+}
+
+.header__theme-menu {
+  place-self: center end;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-block-start: 15px;
+}
+
+.header__theme-menu-button {
+  border: 1px solid transparent;
+  padding: 3px 12px 3px;
+  color: var(--theme-button-color);
+  font-family: var(--font-family), monospace;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 100%;
+  text-align: center;
+  text-transform: lowercase;
+  background: none;
+  cursor: pointer;
+}
+
+.header__theme-menu-button_active {
+  border-color: inherit;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid color-mix(in srgb, var(--theme-button-color), transparent 40%);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid color-mix(in srgb, var(--theme-button-color), transparent 40%);
+}
+
+.page__title {
+  color: var(--title-color);
+  font-weight: 700;
+  font-size: 116px;
+  line-height: 83%;
+}
+
+.header__title-decor {
+  align-self: end;
+  text-shadow: 4px 4px var(--title-shadow);
+}
+
+.header__subtitle {
+  margin-block: 55px;
+}
+
+.section__title {
+  color: var(--section-title-color);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+}
 
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+  color: var(--main-text-color);
+  font-family: var(--font-family), monospace;
+
+  background: var(--background-image) no-repeat center / cover, var(--background-color);
+  background-attachment: fixed;
+}
+
+.main {
+  display: grid;
+  gap: 50px;
+  margin-block-end: 40px;
+  padding: 0 clamp(10px, 2.6vw, 20px);
+}
+
+.title-decor {
+  color: var(--subsection-title-color);  
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 130%;
+  background-color: var(--title-decor);
+}
+
+.section {
+  display: grid;
+  gap: 20px;
+}
+
+.subsection-list {
+  display: grid;
+  gap: 20px;
+}
+
+.subsection-item {
+  display: grid;
+  gap: 10px;
+}
+
+.subsection__title_regular {
+  font-weight: 400;
+}
+
+.subsection__text {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.link-decor {
+  text-decoration: none;
+  text-shadow: 2px 2px var(--link-shadow);
+}
+
+.link-decor:hover {
+  border-block-end: 1px solid var(--main-text-color);
+}
+
+.link-decor:focus {
+  outline: none;
+}
+
+.link-decor:focus-visible {
+  outline: 1px solid var(--main-text-color);
+}
+
+.section-gallery {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery-list {
+  display: grid;
+  gap: 10px;
+}
+
+.gallery-item__img {
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  block-size: 100%;
+  inline-size: 100%;  
+}
+
+.footer {
+  position: relative;
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  block-size: 100vh;
+}
+
+.footer__title-decor {
+  align-self: center;
+  text-shadow: 2px 2px var(--title-shadow);
+}
+
+
+@media (width >= 768px) {
+
+  .main {
+    gap: 80px;
+    margin-block-end: 60px;
+  }
+
+  .section-gallery {
+    gap: 20px;
+  }
+
+  .section-column {
+    grid-template-columns: 1fr 2fr;
+  }
+  .gallery-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .gallery-item:first-of-type { 
+    grid-column: span 2;
+  }
+  .gallery-item:nth-of-type(2) {
+    grid-row: span 2;
+  }
+  .gallery-item:nth-of-type(3) {
+    grid-row: span 2;
+  }
+  .gallery-item:last-of-type { 
+    grid-column: span 2;
+  }
+
+  .header {
+    margin-block-end: 60px;
+  }
+
+  .header__theme-menu {
+    padding-block-start: 100px;
+  }
+
+  .header__title-decor {
+    align-self: center;
+    margin-inline-start: -20px;
+  }
+
+  .page__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__subtitle {
+    justify-self: end;
+    max-inline-size: 364px;
+    margin-block: 48px;
+  }
+
+  .section__title {
+    inline-size: 30vw;
+  }
+}
+
+
+@media (width >= 1024px) {
+  .section-column {
+    gap: 10px;
+  }
+
+  .section:nth-of-type(2) .subsection-list {
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }
+
+  .section:nth-of-type(2) .subsection-item {
+    inline-size: 315px;
+  }
+  
+  .section:nth-of-type(2) .subsection__title{
+    block-size: fit-content;
+  }
+  
+  .section:nth-of-type(2) .subsection-item{
+    grid-template-rows: min-content auto;
+  }
+
+  .header__subtitle {
+    max-inline-size: 491px;
+    margin-block: 58px;
+  }
+
+  .header__theme-menu {
+    place-self: start center;
+    padding-block-start: 0;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+    margin-block-start: 0;
+  }
 }
