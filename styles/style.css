@@ -93,6 +93,7 @@
 
 .header__theme-menu-button_active {
   border-color: inherit;
+  pointer-events: none; 
 }
 
 .header__theme-menu-button:hover {
@@ -300,12 +301,13 @@
   }
 
   .section:nth-of-type(2) .subsection-list {
-    grid-auto-flow: column;
     justify-content: space-between;
+    grid-template-columns: auto auto auto;
+    grid-auto-flow: row;
   }
 
   .section:nth-of-type(2) .subsection-item {
-    inline-size: 315px;
+    min-inline-size: 315px;
   }
   
   .section:nth-of-type(2) .subsection__title{
