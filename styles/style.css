@@ -133,7 +133,6 @@
 .page {
   color: var(--main-text-color);
   font-family: var(--font-family), monospace;
-
   background: var(--background-image) no-repeat center / cover, var(--background-color);
   background-attachment: fixed;
 }
@@ -147,7 +146,7 @@
 
 .title-decor {
   color: var(--subsection-title-color);  
-  font-family: var(--font-family);
+  font-family: var(--font-family), monospace ;
   font-weight: 700;
   font-size: 18px;
   line-height: 130%;
@@ -160,6 +159,11 @@
 }
 
 .subsection-list {
+  display: grid;
+  gap: 20px;
+}
+
+.subsection-content {
   display: grid;
   gap: 20px;
 }
